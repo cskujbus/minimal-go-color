@@ -80,6 +80,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Builtin Function</string>
+			<key>scope</key>
+			<string>support.function.builtin</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Operator</string>
 			<key>scope</key>
 			<string>keyword.operator</string>

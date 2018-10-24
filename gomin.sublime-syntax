@@ -1,0 +1,53 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Go min
+file_extensions:
+  - go
+first_line_match: "-[*]-( Mode:)? Go -[*]-"
+scope: source.go
+
+contexts:
+  main:
+    - include: comments
+    - include: strings
+    - match: \b(break|c(ase|han|onst|ontinue)|def(ault|er)|else|f(allthrough|or|unc)|go(to)?|i(f|mport|nterface)|map|package|r(ange|eturn)|s(elect|truct|witch)|type|var)\b
+      scope: keyword
+    - match: \b(nil|true|false|iota)\b
+      scope: constant.language
+    - match: \b(int(16|8|32|64)?|uint(16|8|32|ptr|64)?|float(32|64)?|b(yte|ool)|error|string|rune|complex(64|128))\b
+      scope: storage.type
+    - match: \b(append|cap|close|complex|copy|delete|imag|len|make|new|panic|print|println|real|recover)\b
+      scope: support.function.builtin
+
+  comments:
+    - match: /\*
+      scope: punctuation.definition.comment.go
+      push:
+        - meta_scope: comment.block.go
+        - match: \*/
+          scope: punctuation.definition.comment.go
+          pop: true
+    - match: //
+      scope: punctuation.definition.comment.go
+      push:
+        - meta_scope: comment.line.double-slash.go
+        - match: \n
+          pop: true
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.go
+      push:
+        - meta_scope: string.quoted.double.go
+        - match: '"'
+          scope: punctuation.definition.string.end.go
+          pop: true
+    - match: "`"
+      scope: punctuation.definition.string.begin.go
+      push:
+        - meta_scope: string.quoted.raw.go
+        - match: "`"
+          scope: punctuation.definition.string.end.go
+          pop: true
+ 

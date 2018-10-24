@@ -9,6 +9,11 @@ Comments and strings are colored other syntax elements are highlighted with bold
 ## Installation
 Copy the theme files to the User folder of Sublime Text which can be found by pressing the *Browse Packages...* menu item.
 
+## Update
+Added a much simpler golang syntax file which corrects the scope of some keywords in the original syntax. The syntax can be way simpler because of the puritan coloring (no fruit salad).
+
+The syntax file should be copied to the User folder then select *Go min* from the View/Syntax menu. The selection will stick until you change it back to *Go*.
+
 ## Breakersmin
 ![Breakersmin](breakersmin.png "Breakersmin")
 
